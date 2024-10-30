@@ -9019,8 +9019,7 @@ static inline void update_sg_lb_stats(struct lb_env *env,
 
 	for_each_cpu_and(i, sched_group_span(group), env->cpus) {
 		struct rq *rq = cpu_rq(i);
-		if (cpu_isolated(i))
-			continue;
+
 		if ((env->flags & LBF_NOHZ_STATS) && update_nohz_stats(rq))
 			env->flags |= LBF_NOHZ_AGAIN;
 
