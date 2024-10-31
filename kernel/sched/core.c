@@ -3755,7 +3755,9 @@ static __always_inline struct rq *
 context_switch(struct rq *rq, struct task_struct *prev,
 	       struct task_struct *next, struct rq_flags *rf)
 {
+	struct mm_struct *mm;
 	prepare_task_switch(rq, prev, next);
+	mm = next->mm;
 
 	/*
 	 * For paravirt, this is coupled with an exit in switch_to to
